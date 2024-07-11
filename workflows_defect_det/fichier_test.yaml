@@ -39,4 +39,14 @@ spec:
         command: ["/bin/sh", "-c"]
         args:
           - >
-            set -e && echo "---Start Training---" && python /app/src/train.py && ls -lR /app/model && echo "---End Training---"
+            set -e &&
+            echo "---Start Training---" &&
+            ls -l /app/data &&
+            python /app/src/train.py &&
+            echo "---Listing /app/model contents---" &&
+            ls -lR /app/model &&
+            echo "---Creating archive---" &&
+            tar -czf /app/model.tar.gz -C /app/model . &&
+            echo "---Archive created---" &&
+            ls -l /app &&
+            echo "---End Training---"
