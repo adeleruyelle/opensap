@@ -30,7 +30,7 @@ spec:
         imagePullSecrets:
           - name: docker-registry-secret
         minReplicas: 1
-        maxReplicas: 5
+        maxReplicas: 3
         containers:
         - name: kserve-container
           image: "docker.io/adeleruyelle/image-seg-infer:latest"
